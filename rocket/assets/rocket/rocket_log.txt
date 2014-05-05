@@ -1,0 +1,3 @@
+Selection:  only object selected
+Frames:  current: 1, no animation selected
+ROcket: object exported.

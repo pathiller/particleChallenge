@@ -1,0 +1,274 @@
+// test
+
+blipp rocket
+	//change the peel params
+	peel = yes;
+    
+	scene default
+		var mW = marker.width;
+		var rocketLoc = rockettwo.location;
+
+		animation moveRight 
+			type = translate_x;
+			stop = 400;
+			speed = 0.1;
+
+		end
+		animation moveLeft
+			type = translate_x;
+			stop = -400;
+			speed= 0.1;
+		end
+		animation moveUp
+			type = translate_y;
+			stop = 300;
+			speed = 0.1;
+
+		end
+		animation moveDown
+			type = translate_y;
+			stop = -300;
+			speed = 0.1;
+
+		end
+		
+		/*animation discolights 
+			type = particles;
+			maximum = 40;
+			emitterFunction = continual,50;
+			trajectory = -1.0,0.0,0.0;
+			spread = 0.0,90.0;
+			startSize = 100,150;
+			endSize = 100,150;
+			colours = [ [1.0,0.0,0.0,1.0,1.0,0.8,0.0,0.1],
+						[0.0,1.0,0.0,1.0,0.0,0.8,1.0,0.1] ];
+			lifetime = 1.0,1.5;
+			speed = 2,2;
+        end*/
+
+        variables
+        	colourOne[] = [1.0,0.0,0.0,1.0,1.0,0.8,0.0,0.1];
+        	colourTwo[] = [0.0,1.0,0.0,1.0,0.0,0.8,1.0,0.1];
+        end
+        
+        
+        
+        animation rocketFlame 
+			type = particles;
+			maximum = 40;
+			emitterFunction = continual,50;
+			trajectory = -1.0,0.0,0.0;
+			spread = 0.0,90.0;
+			startSize = 100,150;
+			endSize = 100,150;
+			colours = [colourOne,colourTwo];
+			lifetime = 1.0,1.5;
+			speed = 2,2;
+        end
+
+		model rockettwo
+			mesh = rockettwo_Cone.md2;
+			texture = silver.jpg;
+			location = rocketLoc;
+			/*function onClick
+				bindAnimation(discolights,rockettwo);
+			end*/
+		end
+		/*model buttonBottom
+			attachment = screen;
+			pre-rotate = 90,90,0;
+			location = 175,0;
+			scale = 1;
+			scaleFactor = mW/13, mW/13,0;
+			texture = red.png;
+			mesh = system.plane;
+		end
+		
+		model buttonTop
+			attachment = screen;
+			align = top;
+			pre-rotate = 90,180,0;
+			scale = 1;
+			scaleFactor = mW/13, mW/13,0;
+			texture = red.png;
+			mesh = system.plane;
+		end*/
+		
+		model redSwatch
+			pre-rotate = 90,0,0;
+			location = -400,300,0;
+			scale = 1;
+			scaleFactor = mW/9,mW/9,0;
+			texture = redSwatch.jpg;
+			mesh = system.plane;
+			function onClick
+				colourOne[] = [1.0,0.0,0.17,1.0,1.0,0.0,0.17,1.0];
+				colourTwo[] = [1.0,0.0,0.17,1.0,1.0,0.0,0.17,1.0];
+			end
+		end
+		model blueSwatch
+			pre-rotate = 90,0,0;
+			location = -200,300,0;
+			scale = 1;
+			scaleFactor = mW/9,mW/9,0;
+			texture = blueSwatch.jpg;
+			mesh = system.plane;
+			function onClick
+				colourOne[] = [0.3,0.4,0.99,1.0,0.3,0.4,0.99,1.0];
+				colourTwo[] = [0.3,0.4,0.99,1.0,0.3,0.4,0.99,1.0];
+			end
+		end
+		model greenSwatch
+			pre-rotate = 90,0,0;
+			location = -300,300,0;
+			scale = 1;
+			scaleFactor = mW/9,mW/9,0;
+			texture = greenSwatch.jpg;
+			mesh = system.plane;
+			function onClick
+				//colourOne[] = [0.5,1.0,0.2,1.0,0.6,0.8,0.0,0.1];
+				//colourTwo[] = [0.5,1.0,0.2,1.0,0.6,0.8,0.0,0.1];
+				colourOne[] = [0.21,0.93,0.10,1.0,0.21,0.93,0.10,1.0];
+				colourTwo[] = [0.21,0.93,0.10,1.0,0.21,0.93,0.10,1.0];
+			end
+		end
+		model yellowSwatch
+			pre-rotate = 90,0,0;
+			location = -100,300,0;
+			scale = 1;
+			scaleFactor = mW/9,mW/9,0;
+			texture = yellowSwatch.jpg;
+			mesh = system.plane;
+			function onClick
+				colourOne[] = [1.0,0.5,0.2,1.0,0.6,0.8,0.0,0.1];
+				colourTwo[] = [1.0,0.5,0.2,1.0,0.6,0.8,0.0,0.1];
+			end
+				 
+		end
+		model violietSwatch
+			pre-rotate = 90,0,0;
+			location = 200,300,0;
+			scale = 1;
+			scaleFactor = mW/9,mW/9,0;
+			texture = violetSwatch.jpg;
+			mesh = system.plane;
+			function onClick
+				colourOne[] = [0.87,0.10,0.93,1.0,0.87,0.10,0.93,1.0];
+				colourTwo[] = [0.87,0.10,0.93,1.0,0.87,0.10,0.93,1.0];
+			end
+		end
+		model orangeSwatch
+			pre-rotate = 90,0,0;
+			location = 400,300,0;
+			scale = 1;
+			scaleFactor = mW/9,mW/9,0;
+			texture = orangeSwatch.jpg;
+			mesh = system.plane;
+			function onClick
+				colourOne[] = [1.0,0.55,0.14,1.0,1.0,0.55,0.14,1.0];
+				colourTwo[] = [1.0,0.55,0.14,1.0,1.0,0.55,0.14,1.0];
+			end
+		end
+		model whiteSwatch
+			pre-rotate = 90,0,0;
+			location = 100,300,0;
+			scale = 1;
+			scaleFactor = mW/9,mW/9,0;
+			texture = whiteSwatch.jpg;
+			mesh = system.plane;
+			function onClick
+				colourOne[] = [1.0,0.0,0.0,1.0,1.0,0.8,0.0,0.1];
+				colourTwo[] = [0.0,1.0,0.0,1.0,0.0,0.8,1.0,0.1];
+			end
+		end
+		model turquoiseSwatch
+			pre-rotate = 90,0,0;
+			location = 300,300,0;
+			scale = 1;
+			scaleFactor = mW/9,mW/9,0;
+			texture = turquoiseSwatch.jpg;
+			mesh = system.plane;
+			function onClick
+				colourOne[] = [0.14,0.92,1.0,1.0,0.14,0.92,1.0,1.0];
+				colourTwo[] = [0.14,0.92,1.0,1.0,0.14,0.92,1.0,1.0];
+			end
+		end
+		
+		model buttonBottom
+            pre-rotate = 90,0,0;
+            location = 0,-300,0;
+            scale = 1;
+            scaleFactor = mW/9,mW/9,0;
+            texture = red.png;
+            mesh = system.plane;
+            function onClick
+				bindAnimation(moveDown,rockettwo);
+				bindAnimation(rocketFlame,rockettwo);
+			end
+			function onTouchEnd
+				stopAnimation(moveDown,,rockettwo);
+				stopAnimation(rocketFlame,,rockettwo);
+			end
+        end
+        
+        model buttonTop
+            pre-rotate = 90,180,0;
+            location = 0,300,0;
+            scale = 1;
+            scaleFactor = mW/9,mW/9,0;
+            texture = red.png;
+            mesh = system.plane;
+            function onClick
+				bindAnimation(moveUp,rockettwo);
+				bindAnimation(rocketFlame,rockettwo);
+			end
+			function onTouchEnd
+				stopAnimation(moveUp,,rockettwo);
+				stopAnimation(rocketFlame,,rockettwo);
+			end
+            
+        end
+        
+        model buttonLeft
+            pre-rotate = 90,270,0;
+            location = -400,0,0;
+            scale = 1;
+            scaleFactor = mW/9,mW/9,0;
+            texture = red.png;
+            mesh = system.plane;
+            function onClick
+				bindAnimation(moveLeft,rockettwo);
+				bindAnimation(rocketFlame,rockettwo);
+			end
+			function onTouchEnd
+				stopAnimation(moveLeft,,rockettwo);
+				stopAnimation(rocketFlame,,rockettwo);
+			end
+        end
+        
+        model buttonRight
+            pre-rotate = 90,90,0;
+            location = 400,0,0;
+            scale = 1;
+            scaleFactor = mW/9,mW/9,0;
+            texture = red.png;
+            mesh = system.plane;
+            function onClick
+				bindAnimation(moveRight,rockettwo);
+				bindAnimation(rocketFlame,rockettwo);
+			end
+			function onTouchEnd
+				stopAnimation(moveRight,,rockettwo);
+				stopAnimation(rocketFlame,,rockettwo);
+			end
+        end
+		
+		function onShow	
+			setClickable(rockettwo,yes);
+		end
+		
+
+		
+
+	end
+end
